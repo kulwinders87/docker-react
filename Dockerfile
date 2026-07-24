@@ -1,14 +1,14 @@
- FROM node:alpine as builder
+FROM node:alpine as builder
 
- WORKDIR '/app'
+WORKDIR '/app'
 
- COPY package.json .
+COPY package.json .
 
- RUN npm install
+RUN npm install
 
- COPY . .
+COPY . .
 
- RUN npm run build
+RUN npm run build
 
 FROM nginx
 
