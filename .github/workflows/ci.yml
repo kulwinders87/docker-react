@@ -20,7 +20,7 @@ jobs:
         run: docker run -e CI=true kulwinders/docker-react npm run test -- --coverage
 
       - name: Generate deployment package
-        run: zip -r deploy.zip . -x '*.git*' -x 'node_modules/*'
+        run: zip -r deploy.zip . -x '*.git*' -x 'node_modules/*' -x 'docker-compose.yml'
 
       - name: Verify zip contents
         run: unzip -l deploy.zip | grep -E 'Dockerfile|docker'
